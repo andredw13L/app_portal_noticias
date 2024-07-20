@@ -21,6 +21,8 @@ class NoticiaController extends Controller
         //$site = Cache::get('site');
         //echo $site;
 
+        /*
+
         $noticias = [];
         
         if(Cache::has('dez_primeiras_noticias')) {
@@ -29,6 +31,14 @@ class NoticiaController extends Controller
             $noticias = Noticia::orderByDesc('created_at')->limit(10)->get();
             Cache::put('dez_primeiras_noticias', $noticias, 15);
         }
+
+        */
+
+        $noticias = [];
+
+        $noticias = Cache::remember('dez_primeiras_noticias', 15, function () {
+            return Noticia::orderByDesc('created_at')->limit(10)->get();
+        });
 
         return view('noticia', ['noticias' => $noticias]);
     }
