@@ -18,3 +18,5 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/database/docker/db_data
+/database/docker/redis_data
