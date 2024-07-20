@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Noticia;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class NoticiaSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class NoticiaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Noticia::factory(1000)->create();
     }
 }
